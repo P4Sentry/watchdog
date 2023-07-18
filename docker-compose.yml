@@ -2,7 +2,7 @@ version: "3"
 services:
     node01:
         build: .
-        image: bmv2-switch
+        image: watchdog
         environment:
             - PORT_NUM=8
             - GRPC_PORT=9559
@@ -11,12 +11,11 @@ services:
         cap_add:
             - NET_ADMIN
     node02:
-        image: bmv2-switch
+        image: watchdog
         environment:
             - PORT_NUM=8
             - GRPC_PORT=9559
         ports:
-            - "9559:9559"
-        build: .
+            - "9569:9559"
         cap_add:
             - NET_ADMIN
