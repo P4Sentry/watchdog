@@ -1,0 +1,10 @@
+In the Host
+- sudo ip link add veth1 type veth peer name veth2
+- sudo ip link set veth1 netns $(docker inspect -f '{{.State.Pid}}' container1)
+- sudo ip link set veth2 netns $(docker inspect -f '{{.State.Pid}}' container2)
+
+In Container 1
+- sudo ip link set dev veth1 master macvlan0
+
+In Container 2
+- sudo ip link set dev veth2 master macvlan0

@@ -1,0 +1,12 @@
+version: "3"
+services:
+    bmv2:
+        image: bmv2-switch
+        environment:
+            - PORT_NUM=8
+            - GRPC_PORT=9559
+        ports:
+            - "9559:9559"
+        build: .
+        cap_add:
+            - NET_ADMIN
