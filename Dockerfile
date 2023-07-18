@@ -11,8 +11,6 @@ COPY . .
 RUN apt-get update && \
     apt-get install -y iproute2 iputils-ping dos2unix
 
-# Make sure EOF characters are cleaned and script is executable
-RUN dos2unix start_switch.sh
 RUN chmod +x start_switch.sh 
 
 ENTRYPOINT ./start_switch.sh ${PORT_NUM} ${GRPC_PORT}
