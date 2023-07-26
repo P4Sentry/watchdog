@@ -7,8 +7,7 @@ INTFS_ARG=""
 for port in $(seq 0 $PORT_NUM); do
     intf="macvlan$port"
     if ! ip link show $intf &> /dev/null; then
-        # Should the intefaces be of VLAN type ?
-        ip link add $intf link eth0 type macvlan mode bridge
+        ip link add $intf link eth0 type macvlan mode vepa  
         ip link set dev $intf up
         INTFS_ARG="$INTFS_ARG-i $port@$intf "
     fi
