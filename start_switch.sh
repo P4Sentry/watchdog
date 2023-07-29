@@ -1,7 +1,6 @@
 #!/usr/bin/env sh
 
 PORT_NUM=$(expr $1 + 1) # Number of ports of the switch
-GRPC_PORT=$2            # gRPC port number
 
 INTFS_ARG=""
 for port in $(seq 1 $PORT_NUM); do
@@ -15,4 +14,4 @@ for port in $(seq 1 $PORT_NUM); do
     fi
 done
 
-simple_switch_grpc --no-p4 $INTFS_ARG-- --grpc-server-addr 0.0.0.0:$GRPC_PORT
+simple_switch_grpc --no-p4 $INTFS_ARG-- --grpc-server-addr 0.0.0.0:9559

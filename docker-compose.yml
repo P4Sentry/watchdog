@@ -5,17 +5,15 @@ services:
         image: watchdog
         environment:
             - PORT_NUM=8
-            - GRPC_PORT=9559
         ports:
-            - "9559:9559"
+            - "10059:9559"
         cap_add:
             - NET_ADMIN
     node02:
         image: watchdog
         environment:
             - PORT_NUM=8
-            - GRPC_PORT=9559
         ports:
-            - "9569:9559"
+            - "10060:9559"
         cap_add:
             - NET_ADMIN
